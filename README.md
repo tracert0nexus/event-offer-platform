@@ -1,0 +1,2 @@
+- Inspired by https://www.dine-shine.ch/offerte
+- Workflow: Service-Presentation (incl. references) -> Request offer -> Admin creates offer -> Customer confirms / declines -> Optional: Timeslotreservation -> Service-Execution -> Invoice 
