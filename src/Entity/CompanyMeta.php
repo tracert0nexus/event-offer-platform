@@ -25,45 +25,24 @@ class CompanyMeta
     #[ORM\Column(length: 64)]
     private ?string $iban = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $ownerName = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ownerStreet = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $ownerCity = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $ownerEmail = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $companyName = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAbout(): ?array
-    {
-        return $this->about;
-    }
-
-    public function setAbout(?array $about): static
-    {
-        $this->about = $about;
-
-        return $this;
-    }
-
-    public function getContact(): array
-    {
-        return $this->contact;
-    }
-
-    public function setContact(array $contact): static
-    {
-        $this->contact = $contact;
-
-        return $this;
-    }
-
-    public function getTeam(): ?array
-    {
-        return $this->team;
-    }
-
-    public function setTeam(?array $team): static
-    {
-        $this->team = $team;
-
-        return $this;
     }
 
     public function getIban(): ?string
@@ -74,6 +53,66 @@ class CompanyMeta
     public function setIban(string $iban): static
     {
         $this->iban = $iban;
+
+        return $this;
+    }
+
+    public function getOwnerName(): ?string
+    {
+        return $this->ownerName;
+    }
+
+    public function setOwnerName(string $ownerName): static
+    {
+        $this->ownerName = $ownerName;
+
+        return $this;
+    }
+
+    public function getOwnerStreet(): ?string
+    {
+        return $this->ownerStreet;
+    }
+
+    public function setOwnerStreet(string $ownerStreet): static
+    {
+        $this->ownerStreet = $ownerStreet;
+
+        return $this;
+    }
+
+    public function getOwnerCity(): ?string
+    {
+        return $this->ownerCity;
+    }
+
+    public function setOwnerCity(?string $ownerCity): static
+    {
+        $this->ownerCity = $ownerCity;
+
+        return $this;
+    }
+
+    public function getOwnerEmail(): ?string
+    {
+        return $this->ownerEmail;
+    }
+
+    public function setOwnerEmail(string $ownerEmail): static
+    {
+        $this->ownerEmail = $ownerEmail;
+
+        return $this;
+    }
+
+    public function getCompanyName(): ?string
+    {
+        return $this->companyName;
+    }
+
+    public function setCompanyName(string $companyName): static
+    {
+        $this->companyName = $companyName;
 
         return $this;
     }
