@@ -3,11 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\CompanyMeta;
-use App\Entity\Invoice;
-use App\Entity\Quote;
-use App\Entity\QuoteRequest;
+use App\Entity\Media;
+use App\Entity\Order;
 use App\Entity\Reference;
-use App\Entity\Service;
+use App\Entity\Services;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -34,11 +33,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 
         yield MenuItem::linkToCrud('CompanyMeta', 'fa fa-users', CompanyMeta::class);
-        yield MenuItem::linkToCrud('Services', 'fa fa-users', Service::class);
-        yield MenuItem::linkToCrud('Invoice', 'fa fa-users', Invoice::class);
-        yield MenuItem::linkToCrud('Quote', 'fa fa-users', Quote::class);
-        yield MenuItem::linkToCrud('QuoteRequest', 'fa fa-users',QuoteRequest::class);
+        yield MenuItem::linkToCrud('Services', 'fa fa-users', Services::class);
+        yield MenuItem::linkToCrud('Orders', 'fa fa-users', Order::class);
         yield MenuItem::linkToCrud('Reference', 'fa fa-users', Reference::class);
+        yield MenuItem::linkToCrud('Media', 'fa fa-users', Media::class);
 
         // optional: externe Links / eigene Routen
         // yield MenuItem::linkToRoute('Offerte-Form', 'fa fa-paper-plane', 'offer_form');

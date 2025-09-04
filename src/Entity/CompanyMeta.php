@@ -40,6 +40,12 @@ class CompanyMeta
     #[ORM\Column(length: 255)]
     private ?string $companyName = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $companySlogan = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $coreService = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,6 +119,30 @@ class CompanyMeta
     public function setCompanyName(string $companyName): static
     {
         $this->companyName = $companyName;
+
+        return $this;
+    }
+
+    public function getCompanySlogan(): ?string
+    {
+        return $this->companySlogan;
+    }
+
+    public function setCompanySlogan(string $companySlogan): static
+    {
+        $this->companySlogan = $companySlogan;
+
+        return $this;
+    }
+
+    public function getCoreService(): ?string
+    {
+        return $this->coreService;
+    }
+
+    public function setCoreService(string $coreService): static
+    {
+        $this->coreService = $coreService;
 
         return $this;
     }

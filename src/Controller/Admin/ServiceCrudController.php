@@ -2,7 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Service;
+use App\Entity\Services;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -12,7 +12,7 @@ class ServiceCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Service::class;
+        return Services::class;
     }
 
     /*
