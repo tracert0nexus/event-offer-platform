@@ -10,10 +10,7 @@
 {% endblock %}
 
 {% block body %}
-
-    {% include 'partials/_hero_slideshow.html.twig' with {
-        references: references,
-        slogan:    companyMeta ? companyMeta.companySlogan : 'Slogan'
-    } %}
-
+        {% include 'partials/_cards.html.twig' with {
+            references: references
+        } %}
 {% endblock %}

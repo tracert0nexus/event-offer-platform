@@ -1,0 +1,65 @@
+<header class="sticky-top">
+    <div class="topbar bg-black text-light py-2">
+        <div class="container d-flex justify-content-end align-items-center gap-3">
+            {#  Language-Buttons
+            <nav class="d-none d-md-flex gap-2 small">
+                <a class="link-light text-decoration-none" href="#">DE</a>
+                <span class="opacity-50">|</span>
+                <a class="link-light text-decoration-none" href="#">EN</a>
+            </nav>
+            #}
+            <a href="#" class="btn btn-outline-warning btn-sm px-3 d-none d-lg-inline-block">Offerte</a>
+        </div>
+    </div>
+
+    {# Haupt-Navigation #}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black border-top border-dark">
+        <div class="container">
+            {# Logo links #}
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="#" alt="Logo" height="28" class="me-2">
+                <span class="fw-semibold">{{ companyName }}</span>
+            </a>
+
+            {# Toggler #}
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                    aria-controls="mainNav" aria-expanded="false" aria-label="Navigation umschalten">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            {# Menüeinträge #}
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+
+                    {# Dropdown: Services = CompanyMeta.CoreBusiness #}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="coreBusinessDropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ coreService }}
+                        </a>{#
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="coreBusinessDropdown">
+
+                            <li><a class="dropdown-item" href="#">Event Catering</a></li>
+                            <li><a class="dropdown-item" href="#">Locations</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Pop-ups</a></li>
+                        </ul> #}
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_reference') }}">Referenzen</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_contact') }}">Kontakt</a>
+                    </li>
+
+                    {# Mobil: Offerte zusätzlich im Menü #}
+                    <li class="nav-item d-lg-none mt-2">
+                        <a href="#" class="btn btn-outline-warning w-100">Offerte</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

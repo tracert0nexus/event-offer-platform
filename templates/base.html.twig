@@ -7,9 +7,79 @@
 
     {# Bootstrap CSS via CDN #}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    {% block styles %}{% endblock %}
+
+    {% block styles %}
+        <style>
+            :root{ --header-h:0px; }
+
+            html, body { height:100%; margin:0; }
+            #hero { width:100%; }
+
+            /* Desktop: Hero exakt = 100vh minus Header */
+            @media (min-width: 992px){
+                #hero.hero-split,
+                #hero.hero-split .row,
+                #hero .hero-left,
+                #hero .hero-right,
+                #hero .carousel,
+                #hero .carousel-inner,
+                #hero .carousel-item { height: calc(100vh - var(--header-h)); }
+
+                /* Bild füllt die Höhe, 50% Breite */
+                #hero .hero-img { height: 100%; width:100%; object-fit: cover; }
+
+                /* Slogan-Positionierung: zentrierter Block, linksbündiger Text, leichter Overlap */
+                #hero .hero-left{
+                    background:#0b0b0b; color:#fff; position:relative; z-index:2; padding:0;
+                    display:flex; align-items:stretch; justify-content:flex-start;
+                }
+                #hero .hero-copy{
+                    margin-left:25%;
+                    margin-top:24%;
+                    padding: 0 3rem 3rem 3rem;
+                    max-width:42rem;
+                    transform: translateX(2.5vw); /* leichter Overlap nach rechts */
+                }
+
+                /* Fade nur Desktop, von links übers Bild */
+                #hero .hero-right{ position:relative; z-index:1; }
+                #hero .hero-right::before{
+                    content:""; position:absolute; inset:0;
+                    background:linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.28) 22%, rgba(0,0,0,0) 50%);
+                    pointer-events:none; z-index:1;
+                }
+            }
+
+            /* Mobil: Slideshow oben, Text unten; volle Breite; Bildhöhe angenehm groß */
+            @media (max-width: 991.98px){
+                #hero .hero-img { height: 60vh; object-fit: cover; }
+                #hero .hero-left{ background:#0b0b0b; color:#fff; padding:2rem 1.25rem 2.5rem; }
+                #hero .hero-copy{ margin:0; padding:0; transform:none; max-width:42rem; }
+                #hero .hero-right::before{ display:none; }
+            }
+
+            /* Typografie + Button (wie zuvor) */
+            .hero-title{
+                text-transform: uppercase; letter-spacing:.08em; line-height:1.05;
+                font-weight:400; font-size: clamp(2rem, 3.4vw + 1rem, 4.2rem); text-align:left;
+            }
+            .btn-outline-accent{
+                --bs-btn-color:#d1a768; --bs-btn-border-color:#d1a768;
+                --bs-btn-hover-bg:#d1a768; --bs-btn-hover-border-color:#d1a768;
+                color:#d1a768; border-width:2px;
+            }
+            .btn-outline-accent:hover{ color:#000; }
+
+            /* Keine Carousel-Steuerung/Indikatoren */
+            .carousel-indicators, .carousel-control-prev, .carousel-control-next { display:none !important; }
+        </style>
+
+
+    {% endblock %}
 </head>
 <body>
+
+{% block menu %}{% endblock %}
 {% block body %}{% endblock %}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>

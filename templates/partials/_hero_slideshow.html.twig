@@ -1,0 +1,30 @@
+<section id="hero" class="hero-split">
+    <div class="container-fluid g-0">
+        <div class="row g-0 align-items-stretch">
+
+            {# RECHTS (mobil zuerst): Slideshow #}
+            <div class="col-12 col-lg-6 order-1 order-lg-2 position-relative hero-right">
+                <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6500">
+                    <div class="carousel-inner">
+                        {% for ref in references %}
+                            {% set media = ref.media|first %}
+                            {% set imgUrl = asset('uploads/media/' ~ media.fileName) %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img src="{{ imgUrl }}" class="d-block w-100 hero-img" alt="{{ ref.title ?? 'Slideshow' }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            {# LINKS (mobil unten): statischer Slogan + CTA #}
+            <div class="col-12 col-lg-6 order-2 order-lg-1 hero-left d-flex">
+                <div class="hero-copy">
+                    <h1 class="hero-title">{{ slogan }}</h1>
+                    <a class="btn btn-outline-accent px-4 py-2" href="{{ path("app_reference") }}">Mehr erfahren</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

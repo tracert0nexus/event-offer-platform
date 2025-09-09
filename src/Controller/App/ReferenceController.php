@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Controller\App;
 
 use App\Repository\CompanyMetaRepository;
@@ -10,12 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class HomeController extends AbstractController
+final class ReferenceController extends AbstractController
 {
-    #[Route('/')]
-    public function index(ReferenceRepository $referenceRepository, CompanyMetaRepository $companyMetaRepository): Response
+    #[Route('/reference', name: 'app_reference')]
+    public function index(CompanyMetaRepository $companyMetaRepository, ReferenceRepository $referenceRepository): Response
     {
-        return $this->render('app/index.html.twig', [
+        return $this->render('app/reference.html.twig', [
             'companyMeta' => $companyMetaRepository->getCompanyMeta(),
             'references' => $referenceRepository->findPublicWithMedia()
         ]);

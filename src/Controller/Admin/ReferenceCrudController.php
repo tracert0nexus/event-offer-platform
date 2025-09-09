@@ -21,7 +21,7 @@ class ReferenceCrudController extends AbstractCrudController
     {
         yield TextField::new('title');
         yield BooleanField::new('isPublic')->setLabel('Öffentlich');
-        yield TextEditorField::new('description');
+        yield TextField::new('description');
         yield CollectionField::new('media', 'Anhänge')
             ->useEntryCrudForm(MediaCrudController::class)
             ->setFormTypeOptions(['by_reference' => false]) // erzwingt addMedium()/removeMedium()
