@@ -19,4 +19,5 @@ class CompanyMetaRepository extends ServiceEntityRepository
     public function getCompanyMeta() {
         return $this->findOneBy([], ['id' => 'DESC']);
     }
+
 }

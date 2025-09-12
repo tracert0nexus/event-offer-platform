@@ -3,6 +3,7 @@
 {% block menu %}
 
     {% include 'partials/_header.html.twig' with {
+        logo:        companyMeta ? companyMeta.media : '',
         companyName: companyMeta ? companyMeta.companyName : 'Geschäftsname',
         coreService: companyMeta ? companyMeta.coreService : "Kerngeschäft"
     } %}
@@ -13,7 +14,7 @@
 
     {% include 'partials/_hero_slideshow.html.twig' with {
         references: references,
-        slogan:    companyMeta ? companyMeta.companySlogan : 'Slogan'
+        slogan:     companyMeta ? companyMeta.companySlogan : 'Slogan'
     } %}
 
 {% endblock %}

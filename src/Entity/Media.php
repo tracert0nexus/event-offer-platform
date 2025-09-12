@@ -24,7 +24,7 @@ class Media
     private ?int $id = null;
 
     #[Vich\UploadableField(mapping: 'media', fileNameProperty: 'fileName')]
-    #[Assert\File(maxSize: '10M', mimeTypes: ['image/jpeg','image/png','application/pdf'])]
+    #[Assert\File(maxSize: '10M', mimeTypes: ['image/jpeg','image/png'])]
     private ?File $file = null;
 
     #[ORM\Column(length: 255)]
@@ -35,8 +35,12 @@ class Media
 
 
     #[ORM\ManyToOne(inversedBy: 'media', cascade: ['persist'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Reference $reference = null;
+
+    #[ORM\ManyToOne(inversedBy: 'media')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?CompanyMeta $companyMeta = null;
 
     public function getId(): ?int
     {
@@ -105,5 +109,17 @@ class Media
     public function getFile(): ?File
     {
         return $this->file;
+    }
+
+    public function getCompanyMeta(): ?CompanyMeta
+    {
+        return $this->companyMeta;
+    }
+
+    public function setCompanyMeta(?CompanyMeta $companyMeta): static
+    {
+        $this->companyMeta = $companyMeta;
+
+        return $this;
     }
 }

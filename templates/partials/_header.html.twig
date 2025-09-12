@@ -17,7 +17,11 @@
         <div class="container">
             {# Logo links #}
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="#" alt="Logo" height="28" class="me-2">
+                {% set logo = companyMeta.media|first %}
+                {% if logo %}
+                    <img src="{{ asset('uploads/media/' ~ logo.fileName) }}" alt="Logo">
+                {% endif %}
+
                 <span class="fw-semibold">{{ companyName }}</span>
             </a>
 
