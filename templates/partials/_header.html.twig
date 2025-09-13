@@ -8,7 +8,7 @@
                 <a class="link-light text-decoration-none" href="#">EN</a>
             </nav>
             #}
-            <a href="#" class="btn btn-outline-warning btn-sm px-3 d-none d-lg-inline-block">Offerte</a>
+            <a href="{{ path('app_order') }}" class="btn btn-outline-warning btn-sm px-3 d-none d-lg-inline-block">Offerte</a>
         </div>
     </div>
 
@@ -36,18 +36,27 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
 
                     {# Dropdown: Services = CompanyMeta.CoreBusiness #}
+                    {#
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="coreBusinessDropdown"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           role="button"  data-bs-toggle="dropdown" aria-expanded="false">
                             {{ coreService }}
-                        </a>{#
+                        </a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="coreBusinessDropdown">
 
                             <li><a class="dropdown-item" href="#">Event Catering</a></li>
                             <li><a class="dropdown-item" href="#">Locations</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Pop-ups</a></li>
-                        </ul> #}
+                        </ul>
+                    </li>#}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_home') }}">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_service') }}">{{ coreService }}</a>
                     </li>
 
                     <li class="nav-item">

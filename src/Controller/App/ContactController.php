@@ -10,12 +10,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class HomeController extends AbstractController
+class ContactController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
+    #[Route('/contact', name: 'app_contact')]
     public function index(ReferenceRepository $referenceRepository, CompanyMetaRepository $companyMetaRepository): Response
     {
-        return $this->render('app/index.html.twig', [
+        return $this->render('app/contact.html.twig', [
             'companyMeta' => $companyMetaRepository->getCompanyMeta(),
             'references' => $referenceRepository->findPublicWithMedia()
         ]);
